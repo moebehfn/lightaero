@@ -1,0 +1,76 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "lightaero"
+version = "0.1.0"
+description = "Lightweight aerodynamic analysis library for research"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+authors = [
+    { name = "lightaero" },
+]
+keywords = ["aerodynamics", "fluid-dynamics", "cfd", "aerospace", "physics"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy>=2.0.0",
+    "scipy>=1.10.0",
+    "matplotlib>=3.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.0",
+    "ruff>=0.15.0",
+    "PyYAML>=6.0.0",
+    "mypy>=1.9.0",
+]
+docs = [
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.5.0",
+    "mkdocstrings[python]>=0.24.0",
+    "mkdocs-jupyter>=0.24.0",
+    "plotly>=6.0.0",
+    "pandas>=2.0.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lightaero"]
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+    "/.github",
+    "/docs",
+    "/tests",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "S"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101", "S603", "S607"]
+"src/lightaero/aerodynamics/aic.py" = ["S101", "S110"]
+
+[tool.ruff.format]
+docstring-code-format = true
