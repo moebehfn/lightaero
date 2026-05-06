@@ -1,0 +1,1401 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://moebehfn.github.io/lightaero/theory/">
+      
+      
+        <link rel="prev" href="../getting-started/">
+      
+      
+        <link rel="next" href="assumptions/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Overview - lightaero</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#theory-physics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="lightaero" class="md-header__button md-logo" aria-label="lightaero" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            lightaero
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="lightaero" class="md-nav__button md-logo" aria-label="lightaero" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    lightaero
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Theory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#geometry-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometry Modeling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Geometry Modeling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#airfoil-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Airfoil Sections
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Airfoil Sections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naca-4-digit-airfoils" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NACA 4-digit Airfoils
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabulated-airfoils-uiuc-dat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabulated Airfoils (UIUC .dat)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wing-geometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wing Geometry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wing Geometry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spanwise-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spanwise Interpolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosine-spacing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cosine Spacing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dlr-f4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DLR-F4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dlr-f6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DLR-F6
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nasa-common-research-model-crm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NASA Common Research Model (CRM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nasa-ucrm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NASA uCRM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumptions-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions &amp; Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registry-and-fidelity-swapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registry and Fidelity Swapping
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Registry and Fidelity Swapping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registration-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registration Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fidelity-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fidelity Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-contracts-and-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Contracts and Validation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Contracts and Validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#output-schemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output Schemas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plausibility-bounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plausibility Bounds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unit-violation-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unit Violation Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="assumptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assumptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aerodynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aerodynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="atmosphere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atmosphere
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="structures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Examples
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/3d-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D Visualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#geometry-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometry Modeling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Geometry Modeling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#airfoil-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Airfoil Sections
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Airfoil Sections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naca-4-digit-airfoils" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NACA 4-digit Airfoils
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabulated-airfoils-uiuc-dat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabulated Airfoils (UIUC .dat)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wing-geometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wing Geometry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wing Geometry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spanwise-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spanwise Interpolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosine-spacing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cosine Spacing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dlr-f4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DLR-F4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dlr-f6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DLR-F6
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nasa-common-research-model-crm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NASA Common Research Model (CRM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nasa-ucrm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NASA uCRM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumptions-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions &amp; Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registry-and-fidelity-swapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registry and Fidelity Swapping
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Registry and Fidelity Swapping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registration-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registration Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fidelity-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fidelity Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-contracts-and-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Contracts and Validation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Contracts and Validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#output-schemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output Schemas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plausibility-bounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plausibility Bounds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unit-violation-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unit Violation Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="theory-physics">Theory &amp; Physics</h1>
+<p>This page contains detailed information about the aerodynamic physics, geometric modeling, and assumptions of the lightaero library.</p>
+<h2 id="geometry-modeling">Geometry Modeling</h2>
+<p>lightaero uses a parametric approach to define wing geometries, supporting both analytic (NACA 4-digit) and tabulated (UIUC .dat) airfoil sections.</p>
+<h3 id="airfoil-sections">Airfoil Sections</h3>
+<h4 id="naca-4-digit-airfoils">NACA 4-digit Airfoils</h4>
+<p>Analytic airfoil profiles are generated using the standard NACA 4-digit equations (NACA Report 460).</p>
+<p>The camberline ordinate <span class="arithmatex">\(z_c/c\)</span> is defined by:
+$$
+z_c/c = 
+\begin{cases} 
+\frac{M}{P^2} (2Px - x^2) &amp; 0 \le x &lt; P \
+\frac{M}{(1-P)^2} ((1-2P) + 2Px - x^2) &amp; P \le x \le 1
+\end{cases}
+$$
+where <span class="arithmatex">\(M\)</span> is the maximum camber and <span class="arithmatex">\(P\)</span> is the position of maximum camber.</p>
+<p>The half-thickness distribution <span class="arithmatex">\(t/c\)</span> is given by:
+$$
+t/c = \frac{T}{0.2} (0.2969\sqrt{x} - 0.1260x - 0.3516x^2 + 0.2843x^3 - 0.1015x^4)
+$$
+where <span class="arithmatex">\(T\)</span> is the maximum thickness.</p>
+<p><strong>Important Note:</strong> The NACA 4-digit camberline slope <span class="arithmatex">\(dz_c/dx\)</span> is discontinuous at <span class="arithmatex">\(x = P\)</span>. For Vortex Lattice Method (VLM) implementations requiring panel normals, one-sided finite differences should be used near this position.</p>
+<h4 id="tabulated-airfoils-uiuc-dat">Tabulated Airfoils (UIUC .dat)</h4>
+<p>lightaero supports loading airfoil coordinates from UIUC-style <code>.dat</code> files. It automatically detects both Selig (TE <span class="arithmatex">\(\to\)</span> LE <span class="arithmatex">\(\to\)</span> TE) and Lednicer (separate upper and lower surface) formats.</p>
+<h3 id="wing-geometry">Wing Geometry</h3>
+<p>Wings are defined by spanwise stations where planform parameters (chord, sweep, twist, airfoil) are specified. </p>
+<h4 id="spanwise-interpolation">Spanwise Interpolation</h4>
+<p>Between defined stations, the geometry is linearly interpolated. For airfoil profiles, this means blending the normalized upper and lower surface coordinates:
+$$
+(x, z)_{blended} = (1 - \alpha)(x, z)_0 + \alpha(x, z)_1
+$$
+where <span class="arithmatex">\(\alpha\)</span> is the fractional distance between stations.</p>
+<h4 id="cosine-spacing">Cosine Spacing</h4>
+<p>To improve accuracy near the wing root and tip (where gradients are high), lightaero uses cosine spacing for spanwise paneling:
+$$
+y_{node} = \frac{b}{4} (1 - \cos(\theta)), \quad \theta \in [0, \pi]
+$$
+where <span class="arithmatex">\(b/2\)</span> is the semi-span.</p>
+<h2 id="reference-models">Reference Models</h2>
+<p>lightaero includes several standard research geometries for benchmarking and validation.</p>
+<h3 id="dlr-f4">DLR-F4</h3>
+<p>The DLR-F4 is a generic transport wing-body configuration from the first AIAA Drag Prediction Workshop (DPW-I, 2001).
+- <strong>Reference:</strong> Redeker, G. et al., "Drag Prediction Workshop I Test Case," AIAA Paper 2001-1086.
+- <strong>Model:</strong> Isolated trapezoidal wing.</p>
+<h3 id="dlr-f6">DLR-F6</h3>
+<p>The DLR-F6 is a transonic transport configuration from the second AIAA Drag Prediction Workshop (DPW-II, 2003).
+- <strong>Reference:</strong> Laflin, K. R. et al., "Data Summary from Second AIAA Computational Fluid Dynamics Drag Prediction Workshop," AIAA Paper 2004-0555.
+- <strong>Model:</strong> Isolated wing with a Yehudi break (cranked planform).</p>
+<h3 id="nasa-common-research-model-crm">NASA Common Research Model (CRM)</h3>
+<p>The CRM is a modern transport configuration designed for CFD validation.
+- <strong>Reference:</strong> Vassberg et al., "The NASA Common Research Model (CRM): A New Wing-Body Configuration for CFD Validation," AIAA Paper 2008-6919.
+- <strong>Model:</strong> Isolated trapezoidal approximation.</p>
+<h3 id="nasa-ucrm">NASA uCRM</h3>
+<p>The "unmodified" CRM (uCRM) provides a more detailed station-based definition of the CRM geometry.</p>
+<h2 id="assumptions-limitations">Assumptions &amp; Limitations</h2>
+<p>lightaero is intended for research-grade low-fidelity analysis and makes several simplifying assumptions to ensure computational efficiency.</p>
+<p>Key limitations include:
+- <strong>Aerodynamics</strong>: Incompressible, inviscid VLM (strictly valid for Mach &lt; 0.3, AoA &lt; 10°).
+- <strong>Structures</strong>: Linear elastic Euler-Bernoulli beams (static analysis only).
+- <strong>Atmosphere</strong>: ISA model based on geometric altitude.</p>
+<p>For a detailed breakdown of validity regimes and physical limits, see the <a href="assumptions/">Assumptions &amp; Limitations</a> page.</p>
+<h2 id="registry-and-fidelity-swapping">Registry and Fidelity Swapping</h2>
+<p>lightaero uses a two-level namespace registry (family <span class="arithmatex">\(\to\)</span> key <span class="arithmatex">\(\to\)</span> class) to allow discipline implementations to be swapped by string key without modifying coupling logic.</p>
+<h3 id="registration-pattern">Registration Pattern</h3>
+<p>Disciplines are registered using the <code>@register</code> decorator. This populates a module-level singleton dictionary at import time.</p>
+<h3 id="fidelity-selection">Fidelity Selection</h3>
+<p>This architecture allows zero-change implementation swapping. A coupling algorithm can request a discipline by its family (e.g., 'aero') and key (e.g., 'vlm' vs 'low_fi'), ensuring the interface remains identical across different fidelity levels.</p>
+<h3 id="design-decisions">Design Decisions</h3>
+<ul>
+<li><strong>Two-level namespace</strong>: Organized by family + key.</li>
+<li><strong>Decorator-based</strong>: Simple, import-time registration.</li>
+<li><strong>Minimal Interface</strong>: <code>DisciplineBase</code> enforces a single <code>__call__</code> method.</li>
+<li><strong>Zero-Dependency Interface</strong>: The registry and base class have no external dependencies on MDO frameworks.</li>
+</ul>
+<h2 id="data-contracts-and-validation">Data Contracts and Validation</h2>
+<p>lightaero uses a structured data contract for inter-discipline communication, ensuring that outputs from one discipline are valid and plausible before being passed to another.</p>
+<h3 id="output-schemas">Output Schemas</h3>
+<p>Discipline outputs are defined as <code>dataclass</code> structures. This provides clear documentation of the expected fields and types.</p>
+<h3 id="plausibility-bounds">Plausibility Bounds</h3>
+<p>Each output schema is accompanied by a companion specification dictionary. This dictionary defines:</p>
+<ul>
+<li><strong>Type</strong>: The expected Python type (e.g., <code>float</code>, <code>np.ndarray</code>).</li>
+<li><strong>Bounds</strong>: Plausible physical ranges for scalars.</li>
+<li><strong>Shape</strong>: Expected dimensions for arrays.</li>
+</ul>
+<h3 id="unit-violation-detection">Unit Violation Detection</h3>
+<p>Bounds serve as a primary defense against unit mismatches. For example, a lift coefficient (<span class="arithmatex">\(C_L\)</span>) of 1000 would fail a plausibility check (typically bounded between -2.0 and 5.0), indicating that the values might have been provided in degrees or another non-dimensionless unit.</p>
+<h3 id="runtime-validation">Runtime Validation</h3>
+<p>The <code>validate_discipline_output</code> function enforces these contracts at runtime, catching bugs and unit errors immediately at the discipline boundary.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Low-fidelity tool for research only. Not production/industry ready. | Copyright &copy; 2026 lightaero
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
