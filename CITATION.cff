@@ -7,9 +7,6 @@ version: 0.1.0
 date-released: 2026-05-06
 url: "https://github.com/moebessd/lightaero"
 preferred-citation:
-  # type: article
   authors:
     - name: "Mohamed Ali Belhafnaoui"
-  # title: "lightaero: A Low-Fidelity Aerodynamics Research Library"
-  # journal: ""
   year: 2026
