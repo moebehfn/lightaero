@@ -5,6 +5,7 @@ This page documents the physical and numerical boundaries of the lightaero libra
 ## Major Physical Assumptions
 
 ### Aerodynamics
+
 lightaero's primary aerodynamic solver is based on the **Vortex Lattice Method (VLM)**.
 
 - **Inviscid Flow**: The fluid is assumed to be inviscid (no boundary layers, no separation). While profile drag is estimated using empirical form factors, it does not capture separation-induced drag.
@@ -19,21 +20,25 @@ lightaero's primary aerodynamic solver is based on the **Vortex Lattice Method (
     VLM predicts linear lift growth even at very high AoA. In reality, wings stall. Results for $\alpha > 10^\circ$ should be treated with extreme caution as viscous separation and stall are not modeled.
 
 ### Structures
+
 - **Linear Elasticity**: The structural model assumes materials remain in the linear elastic regime.
 - **Euler-Bernoulli Beam Theory**: Wings are modeled as 1D beams. Shear deformation and large deflections are not accounted for.
 - **Static Analysis**: The current implementation is limited to static aeroelastic analysis.
 
 ### Atmosphere
+
 - **International Standard Atmosphere (ISA)**: Calculations use the ISA model (ISO 2533 / ICAO) for density and pressure.
 
 ## Implementation Discrepancies
 
 ### Altitude Calculation
+
 !!! warning "Geometric vs. Geopotential Altitude"
     The current atmosphere implementation uses **geometric altitude** ($z$) as the input for density calculations, whereas the ISA standard is defined in terms of **geopotential altitude** ($H$).
     At 10,000 m, the error is approximately 16m (0.16%), which is generally considered acceptable for low-fidelity research but should be noted for high-precision comparisons.
 
 ### Structural Dynamics
+
 !!! warning "Static Analysis Only"
     Although the theoretical documentation provides formulas for mass matrices, the current structural discipline is limited to **static analysis**. Dynamic effects (flutter, gust response) are not yet implemented.
 

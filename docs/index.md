@@ -5,3 +5,8 @@ Welcome to the lightaero documentation. lightaero provides a lightweight, easy-t
 ## Research Disclaimer
 
 Low-fidelity tool for research only. Not production/industry ready.
+
+## Links
+
+- **Repository:** [https://github.com/moebehfn/lightaero](https://github.com/moebehfn/mdotoolbox)
+- **Author:** Mohamed Ali Belhafnaoui (<mohamed-ali.belhafnaoui@etud.polymtl.ca>)

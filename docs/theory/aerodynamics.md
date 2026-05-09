@@ -15,6 +15,7 @@ for $i = 0, \dots, N$. This distribution clusters panels near the boundaries whe
 ### Horseshoe Vortex Convention
 
 Each panel $j$ has a horseshoe vortex consisting of:
+
 - **Bound vortex segment**: $A_j \rightarrow B_j$ (inboard to outboard at quarter-chord)
 - **Right trailing leg**: $B_j \rightarrow +\infty$ in freestream direction, strength $+\gamma$
 - **Left trailing leg**: $A_j \rightarrow +\infty$ in freestream direction, strength $-\gamma$
@@ -42,7 +43,9 @@ The AIC matrix relates the circulation $\gamma_j$ of each panel to the normal ve
 $$ \mathbf{AIC} \cdot \mathbf{\gamma} = \mathbf{RHS} $$
 
 The no-penetration boundary condition at each control point $i$ states:
+
 $$ (\mathbf{V}_{\infty} + \mathbf{v}_{\text{induced}}) \cdot \hat{\mathbf{n}}_i = 0 $$
+
 $$ \mathbf{RHS}_i = -(\mathbf{V}_{\infty} \cdot \hat{\mathbf{n}}_i) $$
 
 ## Static Aeroelasticity
@@ -81,8 +84,11 @@ $$ C_{Di} = -\frac{1}{V_{\infty}^2 S_{\text{ref}}} \sum \Gamma_j (w_{tp,j} \Delt
 ### Profile Drag
 
 Zero-lift profile drag is estimated using turbulent flat-plate strip theory with a thickness form factor:
+
 $$ C_{f} = \frac{0.074}{Re_c^{0.2}} $$
+
 $$ FF = 1 + 2 \frac{t}{c} $$
+
 $$ c_{d0} = 2 C_f FF $$
 
 ## References
