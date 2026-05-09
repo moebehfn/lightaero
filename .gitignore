@@ -179,5 +179,4 @@ temporary*
 temp*
 
 site/*
-# Ignore HTML assets
-docs/assets/fig.html
+fig.html

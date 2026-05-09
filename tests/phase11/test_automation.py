@@ -52,4 +52,4 @@ def test_script_execution_produces_html():
 def test_gitignore_ignores_asset():
     with open(".gitignore") as f:
         content = f.read()
-    assert "docs/assets/fig.html" in content
+    assert "fig.html" in content
