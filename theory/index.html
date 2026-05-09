@@ -1252,59 +1252,67 @@
 <h3 id="airfoil-sections">Airfoil Sections</h3>
 <h4 id="naca-4-digit-airfoils">NACA 4-digit Airfoils</h4>
 <p>Analytic airfoil profiles are generated using the standard NACA 4-digit equations (NACA Report 460).</p>
-<p>The camberline ordinate <span class="arithmatex">\(z_c/c\)</span> is defined by:
-$$
-z_c/c = 
-\begin{cases} 
-\frac{M}{P^2} (2Px - x^2) &amp; 0 \le x &lt; P \
+<p>The camberline ordinate <span class="arithmatex">\(z_c/c\)</span> is defined by:</p>
+<div class="arithmatex">\[
+z_c/c =
+\begin{cases}
+\frac{M}{P^2} (2Px - x^2) &amp; 0 \le x &lt; P \\
 \frac{M}{(1-P)^2} ((1-2P) + 2Px - x^2) &amp; P \le x \le 1
 \end{cases}
-$$
-where <span class="arithmatex">\(M\)</span> is the maximum camber and <span class="arithmatex">\(P\)</span> is the position of maximum camber.</p>
-<p>The half-thickness distribution <span class="arithmatex">\(t/c\)</span> is given by:
-$$
+\]</div>
+<p>where <span class="arithmatex">\(M\)</span> is the maximum camber and <span class="arithmatex">\(P\)</span> is the position of maximum camber.</p>
+<p>The half-thickness distribution <span class="arithmatex">\(t/c\)</span> is given by:</p>
+<div class="arithmatex">\[
 t/c = \frac{T}{0.2} (0.2969\sqrt{x} - 0.1260x - 0.3516x^2 + 0.2843x^3 - 0.1015x^4)
-$$
-where <span class="arithmatex">\(T\)</span> is the maximum thickness.</p>
+\]</div>
+<p>where <span class="arithmatex">\(T\)</span> is the maximum thickness.</p>
 <p><strong>Important Note:</strong> The NACA 4-digit camberline slope <span class="arithmatex">\(dz_c/dx\)</span> is discontinuous at <span class="arithmatex">\(x = P\)</span>. For Vortex Lattice Method (VLM) implementations requiring panel normals, one-sided finite differences should be used near this position.</p>
 <h4 id="tabulated-airfoils-uiuc-dat">Tabulated Airfoils (UIUC .dat)</h4>
 <p>lightaero supports loading airfoil coordinates from UIUC-style <code>.dat</code> files. It automatically detects both Selig (TE <span class="arithmatex">\(\to\)</span> LE <span class="arithmatex">\(\to\)</span> TE) and Lednicer (separate upper and lower surface) formats.</p>
 <h3 id="wing-geometry">Wing Geometry</h3>
-<p>Wings are defined by spanwise stations where planform parameters (chord, sweep, twist, airfoil) are specified. </p>
+<p>Wings are defined by spanwise stations where planform parameters (chord, sweep, twist, airfoil) are specified.</p>
 <h4 id="spanwise-interpolation">Spanwise Interpolation</h4>
-<p>Between defined stations, the geometry is linearly interpolated. For airfoil profiles, this means blending the normalized upper and lower surface coordinates:
-$$
+<p>Between defined stations, the geometry is linearly interpolated. For airfoil profiles, this means blending the normalized upper and lower surface coordinates:</p>
+<div class="arithmatex">\[
 (x, z)_{blended} = (1 - \alpha)(x, z)_0 + \alpha(x, z)_1
-$$
-where <span class="arithmatex">\(\alpha\)</span> is the fractional distance between stations.</p>
+\]</div>
+<p>where <span class="arithmatex">\(\alpha\)</span> is the fractional distance between stations.</p>
 <h4 id="cosine-spacing">Cosine Spacing</h4>
-<p>To improve accuracy near the wing root and tip (where gradients are high), lightaero uses cosine spacing for spanwise paneling:
-$$
+<p>To improve accuracy near the wing root and tip (where gradients are high), lightaero uses cosine spacing for spanwise paneling:</p>
+<div class="arithmatex">\[
 y_{node} = \frac{b}{4} (1 - \cos(\theta)), \quad \theta \in [0, \pi]
-$$
-where <span class="arithmatex">\(b/2\)</span> is the semi-span.</p>
+\]</div>
+<p>where <span class="arithmatex">\(b/2\)</span> is the semi-span.</p>
 <h2 id="reference-models">Reference Models</h2>
 <p>lightaero includes several standard research geometries for benchmarking and validation.</p>
 <h3 id="dlr-f4">DLR-F4</h3>
-<p>The DLR-F4 is a generic transport wing-body configuration from the first AIAA Drag Prediction Workshop (DPW-I, 2001).
-- <strong>Reference:</strong> Redeker, G. et al., "Drag Prediction Workshop I Test Case," AIAA Paper 2001-1086.
-- <strong>Model:</strong> Isolated trapezoidal wing.</p>
+<p>The DLR-F4 is a generic transport wing-body configuration from the first AIAA Drag Prediction Workshop (DPW-I, 2001).</p>
+<ul>
+<li><strong>Reference:</strong> Redeker, G. et al., "Drag Prediction Workshop I Test Case," AIAA Paper 2001-1086.</li>
+<li><strong>Model:</strong> Isolated trapezoidal wing.</li>
+</ul>
 <h3 id="dlr-f6">DLR-F6</h3>
-<p>The DLR-F6 is a transonic transport configuration from the second AIAA Drag Prediction Workshop (DPW-II, 2003).
-- <strong>Reference:</strong> Laflin, K. R. et al., "Data Summary from Second AIAA Computational Fluid Dynamics Drag Prediction Workshop," AIAA Paper 2004-0555.
-- <strong>Model:</strong> Isolated wing with a Yehudi break (cranked planform).</p>
+<p>The DLR-F6 is a transonic transport configuration from the second AIAA Drag Prediction Workshop (DPW-II, 2003).</p>
+<ul>
+<li><strong>Reference:</strong> Laflin, K. R. et al., "Data Summary from Second AIAA Computational Fluid Dynamics Drag Prediction Workshop," AIAA Paper 2004-0555.</li>
+<li><strong>Model:</strong> Isolated wing with a Yehudi break (cranked planform).</li>
+</ul>
 <h3 id="nasa-common-research-model-crm">NASA Common Research Model (CRM)</h3>
-<p>The CRM is a modern transport configuration designed for CFD validation.
-- <strong>Reference:</strong> Vassberg et al., "The NASA Common Research Model (CRM): A New Wing-Body Configuration for CFD Validation," AIAA Paper 2008-6919.
-- <strong>Model:</strong> Isolated trapezoidal approximation.</p>
+<p>The CRM is a modern transport configuration designed for CFD validation.</p>
+<ul>
+<li><strong>Reference:</strong> Vassberg et al., "The NASA Common Research Model (CRM): A New Wing-Body Configuration for CFD Validation," AIAA Paper 2008-6919.</li>
+<li><strong>Model:</strong> Isolated trapezoidal approximation.</li>
+</ul>
 <h3 id="nasa-ucrm">NASA uCRM</h3>
 <p>The "unmodified" CRM (uCRM) provides a more detailed station-based definition of the CRM geometry.</p>
 <h2 id="assumptions-limitations">Assumptions &amp; Limitations</h2>
 <p>lightaero is intended for research-grade low-fidelity analysis and makes several simplifying assumptions to ensure computational efficiency.</p>
-<p>Key limitations include:
-- <strong>Aerodynamics</strong>: Incompressible, inviscid VLM (strictly valid for Mach &lt; 0.3, AoA &lt; 10°).
-- <strong>Structures</strong>: Linear elastic Euler-Bernoulli beams (static analysis only).
-- <strong>Atmosphere</strong>: ISA model based on geometric altitude.</p>
+<p>Key limitations include:</p>
+<ul>
+<li><strong>Aerodynamics</strong>: Incompressible, inviscid VLM (strictly valid for Mach &lt; 0.3, AoA &lt; 10°).</li>
+<li><strong>Structures</strong>: Linear elastic Euler-Bernoulli beams (static analysis only).</li>
+<li><strong>Atmosphere</strong>: ISA model based on geometric altitude.</li>
+</ul>
 <p>For a detailed breakdown of validity regimes and physical limits, see the <a href="assumptions/">Assumptions &amp; Limitations</a> page.</p>
 <h2 id="registry-and-fidelity-swapping">Registry and Fidelity Swapping</h2>
 <p>lightaero uses a two-level namespace registry (family <span class="arithmatex">\(\to\)</span> key <span class="arithmatex">\(\to\)</span> class) to allow discipline implementations to be swapped by string key without modifying coupling logic.</p>

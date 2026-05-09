@@ -1019,10 +1019,12 @@
 <div class="arithmatex">\[x_i = \frac{1}{2} [ 1 - \cos( \frac{i \cdot \pi}{N} ) ]\]</div>
 <p>for <span class="arithmatex">\(i = 0, \dots, N\)</span>. This distribution clusters panels near the boundaries where pressure gradients are steepest (Katz &amp; Plotkin, 2001).</p>
 <h3 id="horseshoe-vortex-convention">Horseshoe Vortex Convention</h3>
-<p>Each panel <span class="arithmatex">\(j\)</span> has a horseshoe vortex consisting of:
-- <strong>Bound vortex segment</strong>: <span class="arithmatex">\(A_j \rightarrow B_j\)</span> (inboard to outboard at quarter-chord)
-- <strong>Right trailing leg</strong>: <span class="arithmatex">\(B_j \rightarrow +\infty\)</span> in freestream direction, strength <span class="arithmatex">\(+\gamma\)</span>
-- <strong>Left trailing leg</strong>: <span class="arithmatex">\(A_j \rightarrow +\infty\)</span> in freestream direction, strength <span class="arithmatex">\(-\gamma\)</span></p>
+<p>Each panel <span class="arithmatex">\(j\)</span> has a horseshoe vortex consisting of:</p>
+<ul>
+<li><strong>Bound vortex segment</strong>: <span class="arithmatex">\(A_j \rightarrow B_j\)</span> (inboard to outboard at quarter-chord)</li>
+<li><strong>Right trailing leg</strong>: <span class="arithmatex">\(B_j \rightarrow +\infty\)</span> in freestream direction, strength <span class="arithmatex">\(+\gamma\)</span></li>
+<li><strong>Left trailing leg</strong>: <span class="arithmatex">\(A_j \rightarrow +\infty\)</span> in freestream direction, strength <span class="arithmatex">\(-\gamma\)</span></li>
+</ul>
 <h3 id="biot-savart-law">Biot-Savart Law</h3>
 <p>The velocity induced at a point <span class="arithmatex">\(P\)</span> by a vortex segment is given by the Biot-Savart law. For a finite segment <span class="arithmatex">\(A \rightarrow B\)</span>:</p>
 <div class="arithmatex">\[ \mathbf{V} = \frac{\Gamma}{4\pi} \frac{\mathbf{r}_1 \times \mathbf{r}_2}{|\mathbf{r}_1 \times \mathbf{r}_2|^2} \left( \mathbf{r}_0 \cdot \left( \frac{\mathbf{r}_1}{|\mathbf{r}_1|} - \frac{\mathbf{r}_2}{|\mathbf{r}_2|} \right) \right) \]</div>
@@ -1034,9 +1036,9 @@
 <h3 id="aerodynamic-influence-coefficient-aic-matrix">Aerodynamic Influence Coefficient (AIC) Matrix</h3>
 <p>The AIC matrix relates the circulation <span class="arithmatex">\(\gamma_j\)</span> of each panel to the normal velocity induced at control points <span class="arithmatex">\(CP_i\)</span>:</p>
 <div class="arithmatex">\[ \mathbf{AIC} \cdot \mathbf{\gamma} = \mathbf{RHS} \]</div>
-<p>The no-penetration boundary condition at each control point <span class="arithmatex">\(i\)</span> states:
-$$ (\mathbf{V}<em>{\infty} + \mathbf{v}</em>{\text{induced}}) \cdot \hat{\mathbf{n}}<em>i = 0 $$
-$$ \mathbf{RHS}_i = -(\mathbf{V}</em>{\infty} \cdot \hat{\mathbf{n}}_i) $$</p>
+<p>The no-penetration boundary condition at each control point <span class="arithmatex">\(i\)</span> states:</p>
+<div class="arithmatex">\[ (\mathbf{V}_{\infty} + \mathbf{v}_{\text{induced}}) \cdot \hat{\mathbf{n}}_i = 0 \]</div>
+<div class="arithmatex">\[ \mathbf{RHS}_i = -(\mathbf{V}_{\infty} \cdot \hat{\mathbf{n}}_i) \]</div>
 <h2 id="static-aeroelasticity">Static Aeroelasticity</h2>
 <p>The aeroelastic discipline couples the VLM aerodynamic solver with an Euler-Bernoulli structural beam model.</p>
 <h3 id="coupling-algorithm">Coupling Algorithm</h3>
@@ -1058,10 +1060,10 @@ $$ \mathbf{RHS}_i = -(\mathbf{V}</em>{\infty} \cdot \hat{\mathbf{n}}_i) $$</p>
 <p>Note that the far-field normal wash <span class="arithmatex">\(w_{i, \infty}\)</span> is twice the bound-vortex downwash at the wing (Drela, 2014). For three-dimensional systems with non-planar wakes, the coefficient form is used:</p>
 <div class="arithmatex">\[ C_{Di} = -\frac{1}{V_{\infty}^2 S_{\text{ref}}} \sum \Gamma_j (w_{tp,j} \Delta y_j - v_{tp,j} \Delta z_j) \]</div>
 <h3 id="profile-drag">Profile Drag</h3>
-<p>Zero-lift profile drag is estimated using turbulent flat-plate strip theory with a thickness form factor:
-$$ C_{f} = \frac{0.074}{Re_c^{0.2}} $$
-$$ FF = 1 + 2 \frac{t}{c} $$
-$$ c_{d0} = 2 C_f FF $$</p>
+<p>Zero-lift profile drag is estimated using turbulent flat-plate strip theory with a thickness form factor:</p>
+<div class="arithmatex">\[ C_{f} = \frac{0.074}{Re_c^{0.2}} \]</div>
+<div class="arithmatex">\[ FF = 1 + 2 \frac{t}{c} \]</div>
+<div class="arithmatex">\[ c_{d0} = 2 C_f FF \]</div>
 <h2 id="references">References</h2>
 <ul>
 <li>Katz, J. and Plotkin, A. "Low-Speed Aerodynamics", 2nd ed., Cambridge University Press, 2001.</li>

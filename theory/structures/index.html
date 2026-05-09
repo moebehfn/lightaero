@@ -1086,26 +1086,26 @@
 <h3 id="euler-bernoulli-beam">Euler-Bernoulli Beam</h3>
 <p>The model uses standard Hermite cubic shape functions for transverse displacement and slope.</p>
 <h4 id="element-stiffness-matrix-k_e">Element Stiffness Matrix (<span class="arithmatex">\(K_e\)</span>)</h4>
-<p>The <span class="arithmatex">\(4 \times 4\)</span> element stiffness matrix for a beam element with length <span class="arithmatex">\(L\)</span>, Young's modulus <span class="arithmatex">\(E\)</span>, and moment of inertia <span class="arithmatex">\(I\)</span> is:
-$$
-\mathbf{K}_e = \frac{EI}{L^3} \begin{bmatrix} 
-12 &amp; 6L &amp; -12 &amp; 6L \ 
-6L &amp; 4L^2 &amp; -6L &amp; 2L^2 \ 
--12 &amp; -6L &amp; 12 &amp; -6L \ 
-6L &amp; 2L^2 &amp; -6L &amp; 4L^2 
+<p>The <span class="arithmatex">\(4 \times 4\)</span> element stiffness matrix for a beam element with length <span class="arithmatex">\(L\)</span>, Young's modulus <span class="arithmatex">\(E\)</span>, and moment of inertia <span class="arithmatex">\(I\)</span> is:</p>
+<div class="arithmatex">\[
+\mathbf{K}_e = \frac{EI}{L^3} \begin{bmatrix}
+12 &amp; 6L &amp; -12 &amp; 6L \\
+6L &amp; 4L^2 &amp; -6L &amp; 2L^2 \\
+-12 &amp; -6L &amp; 12 &amp; -6L \\
+6L &amp; 2L^2 &amp; -6L &amp; 4L^2
 \end{bmatrix}
-$$</p>
+\]</div>
 <h4 id="consistent-mass-matrix-m_e">Consistent Mass Matrix (<span class="arithmatex">\(M_e\)</span>)</h4>
-<p>To account for inertial effects in dynamic analysis, a consistent mass matrix is derived using the same Hermite cubic shape functions as the stiffness matrix (Reddy, 1993):
-$$
-\mathbf{M}_e = \frac{\rho A L}{420} \begin{bmatrix} 
-156 &amp; 22L &amp; 54 &amp; -13L \
-22L &amp; 4L^2 &amp; 13L &amp; -3L^2 \
-54 &amp; 13L &amp; 156 &amp; -22L \
+<p>To account for inertial effects in dynamic analysis, a consistent mass matrix is derived using the same Hermite cubic shape functions as the stiffness matrix (Reddy, 1993):</p>
+<div class="arithmatex">\[
+\mathbf{M}_e = \frac{\rho A L}{420} \begin{bmatrix}
+156 &amp; 22L &amp; 54 &amp; -13L \\
+22L &amp; 4L^2 &amp; 13L &amp; -3L^2 \\
+54 &amp; 13L &amp; 156 &amp; -22L \\
 -13L &amp; -3L^2 &amp; -22L &amp; 4L^2
 \end{bmatrix}
-$$
-where <span class="arithmatex">\(\rho\)</span> is the material density and <span class="arithmatex">\(A\)</span> is the cross-sectional area.</p>
+\]</div>
+<p>where <span class="arithmatex">\(\rho\)</span> is the material density and <span class="arithmatex">\(A\)</span> is the cross-sectional area.</p>
 <div class="admonition warning">
 <p class="admonition-title">Implementation Note: Static Analysis Only</p>
 <p>Although the theoretical mass matrix formulas are provided above, the current structural discipline implementation in lightaero is limited to <strong>static analysis</strong>. Dynamic effects such as flutter, gust response, and modal analysis are not yet supported.</p>
@@ -1115,23 +1115,23 @@ where <span class="arithmatex">\(\rho\)</span> is the material density and <span
 <h4 id="shear-center">Shear Center</h4>
 <p>The chordwise shear center position (<span class="arithmatex">\(x_{sc}\)</span>) is determined via the Bredt-Batho method for a unit vertical shear.</p>
 <h4 id="torsional-constant">Torsional Constant</h4>
-<p>The torsional constant (<span class="arithmatex">\(J\)</span>) for the closed single-cell box is calculated as:
-$$
+<p>The torsional constant (<span class="arithmatex">\(J\)</span>) for the closed single-cell box is calculated as:</p>
+<div class="arithmatex">\[
 J = \frac{4 A_e^2}{\oint \frac{1}{t} ds}
-$$
-where <span class="arithmatex">\(A_e\)</span> is the enclosed area and <span class="arithmatex">\(t\)</span> is the skin thickness.</p>
+\]</div>
+<p>where <span class="arithmatex">\(A_e\)</span> is the enclosed area and <span class="arithmatex">\(t\)</span> is the skin thickness.</p>
 <h2 id="stress-analysis">Stress Analysis</h2>
 <h3 id="bending-stress">Bending Stress</h3>
-<p>Bending stress is calculated from the vertical (<span class="arithmatex">\(M_x\)</span>) and in-plane (<span class="arithmatex">\(M_z\)</span>) bending moments:
-$$
+<p>Bending stress is calculated from the vertical (<span class="arithmatex">\(M_x\)</span>) and in-plane (<span class="arithmatex">\(M_z\)</span>) bending moments:</p>
+<div class="arithmatex">\[
 \sigma_{bending} = \frac{|M_x| y}{I_{xx}} + \frac{|M_z| x}{I_{zz}}
-$$</p>
+\]</div>
 <h3 id="torsional-shear-stress">Torsional Shear Stress</h3>
-<p>Torsional shear stress (<span class="arithmatex">\(\tau\)</span>) is computed using the Bredt-Batho formula for closed sections:
-$$
+<p>Torsional shear stress (<span class="arithmatex">\(\tau\)</span>) is computed using the Bredt-Batho formula for closed sections:</p>
+<div class="arithmatex">\[
 \tau = \frac{T}{2 A_e t}
-$$
-where <span class="arithmatex">\(T\)</span> is the local torque.</p>
+\]</div>
+<p>where <span class="arithmatex">\(T\)</span> is the local torque.</p>
 <h3 id="von-mises-stress">Von Mises Stress</h3>
 <p>The combined stress state is evaluated using the Von Mises criterion:
 $$
@@ -1139,15 +1139,15 @@ $$
 $$</p>
 <h2 id="weight-estimation">Weight Estimation</h2>
 <h3 id="structural-mass">Structural Mass</h3>
-<p>Wing structural mass is obtained by spanwise integration of the material density (<span class="arithmatex">\(\rho\)</span>) over the cross-sectional area (<span class="arithmatex">\(A_{cross}\)</span>), adjusted by a structural factor (<span class="arithmatex">\(k_{struct}\)</span>):
-$$
+<p>Wing structural mass is obtained by spanwise integration of the material density (<span class="arithmatex">\(\rho\)</span>) over the cross-sectional area (<span class="arithmatex">\(A_{cross}\)</span>), adjusted by a structural factor (<span class="arithmatex">\(k_{struct}\)</span>):</p>
+<div class="arithmatex">\[
 m_{wing} = 2 \int_0^{b/2} \rho A_{cross} k_{struct} dy
-$$</p>
+\]</div>
 <h3 id="operating-empty-weight-oew">Operating Empty Weight (OEW)</h3>
-<p>OEW is estimated using the Roskam log-linear regression for transport aircraft (Roskam, 1985):
-$$
+<p>OEW is estimated using the Roskam log-linear regression for transport aircraft (Roskam, 1985):</p>
+<div class="arithmatex">\[
 \log_{10}(OEW) = -0.0833 + 0.9647 \log_{10}(MTOW)
-$$</p>
+\]</div>
 <h2 id="references">References</h2>
 <ul>
 <li>Reddy, J. N. (1993). <em>An Introduction to the Finite Element Method</em> (2nd ed.). McGraw-Hill.</li>

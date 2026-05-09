@@ -942,29 +942,33 @@
 <p>where <span class="arithmatex">\(R_e \approx 6,356,766\)</span> m is the effective radius of the Earth for atmospheric calculations (ISO 2533:1975).</p>
 <div class="admonition warning">
 <p class="admonition-title">Implementation Note: Geometric vs. Geopotential Altitude</p>
-<p>While the ISA model is formally defined in terms of geopotential altitude (<span class="arithmatex">\(H\)</span>), the current lightaero implementation uses <strong>geometric altitude</strong> (<span class="arithmatex">\(Z\)</span>) as the direct input for all atmospheric property calculations. </p>
+<p>While the ISA model is formally defined in terms of geopotential altitude (<span class="arithmatex">\(H\)</span>), the current lightaero implementation uses <strong>geometric altitude</strong> (<span class="arithmatex">\(Z\)</span>) as the direct input for all atmospheric property calculations.</p>
 <p>This simplification avoids the conversion step but introduces a small error that increases with altitude (approximately 0.16% at 10,000 m). For most preliminary research applications, this error is considered negligible.</p>
 </div>
 <h3 id="layers">Layers</h3>
-<p>The model covers two layers:
-1. <strong>Troposphere</strong> (0 to 11,000 m): Linear temperature lapse rate.
-2. <strong>Tropopause</strong> (11,000 to 20,000 m): Constant temperature (isothermal).</p>
+<p>The model covers two layers:</p>
+<ol>
+<li><strong>Troposphere</strong> (0 to 11,000 m): Linear temperature lapse rate.</li>
+<li><strong>Tropopause</strong> (11,000 to 20,000 m): Constant temperature (isothermal).</li>
+</ol>
 <h3 id="governing-equations">Governing Equations</h3>
 <h4 id="troposphere-h-11000-m">Troposphere (<span class="arithmatex">\(h &lt; 11,000\)</span> m)</h4>
-<div class="arithmatex">\[ T = T_0 - L h $$
-$$ p = p_0 \left( \frac{T}{T_0} \right)^{\frac{g_0}{R L}} $$
-$$ \rho = \frac{p}{R T} \]</div>
+<div class="arithmatex">\[ T = T_0 - L h \]</div>
+<div class="arithmatex">\[ p = p_0 \left( \frac{T}{T_0} \right)^{\frac{g_0}{R L}} \]</div>
+<div class="arithmatex">\[ \rho = \frac{p}{R T} \]</div>
 <h4 id="tropopause-h-ge-11000-m">Tropopause (<span class="arithmatex">\(h \ge 11,000\)</span> m)</h4>
-<div class="arithmatex">\[ T = T_{tp} $$
-$$ p = p_{tp} \exp\left( -\frac{g_0 (h - H_{tp})}{R T_{tp}} \right) $$
-$$ \rho = \frac{p}{R T_{tp}} \]</div>
+<div class="arithmatex">\[ T = T_{tp} \]</div>
+<div class="arithmatex">\[ p = p_{tp} \exp\left( -\frac{g_0 (h - H_{tp})}{R T_{tp}} \right) \]</div>
+<div class="arithmatex">\[ \rho = \frac{p}{R T_{tp}} \]</div>
 <h3 id="dynamic-viscosity">Dynamic Viscosity</h3>
 <p>The dynamic viscosity <span class="arithmatex">\(\mu\)</span> is calculated using Sutherland's Law, which accounts for the effect of temperature on the viscosity of a gas:</p>
 <div class="arithmatex">\[ \mu = \mu_0 \frac{T_0 + S}{T + S} \left( \frac{T}{T_0} \right)^{3/2} \]</div>
-<p>For air, the standard constants (ICAO Doc 7488) are:
-- <span class="arithmatex">\(\mu_0 = 1.716 \times 10^{-5}\)</span> Pa·s
-- <span class="arithmatex">\(T_0 = 273.15\)</span> K
-- <span class="arithmatex">\(S = 110.4\)</span> K</p>
+<p>For air, the standard constants (ICAO Doc 7488) are:</p>
+<ul>
+<li><span class="arithmatex">\(\mu_0 = 1.716 \times 10^{-5}\)</span> Pa·s</li>
+<li><span class="arithmatex">\(T_0 = 273.15\)</span> K</li>
+<li><span class="arithmatex">\(S = 110.4\)</span> K</li>
+</ul>
 <h3 id="speed-of-sound">Speed of Sound</h3>
 <p>The speed of sound <span class="arithmatex">\(a\)</span> in the atmosphere is a function of the local air temperature:</p>
 <div class="arithmatex">\[ a = \sqrt{\gamma R T} \]</div>
