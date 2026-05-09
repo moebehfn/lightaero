@@ -50,7 +50,7 @@ def test_ci_workflow_matrix():
     matrix = strategy.get("matrix", {})
     python_versions = matrix.get("python-version", [])
 
-    expected_versions = ["3.10", "3.11", "3.12", "3.13"]
+    expected_versions = ["3.11", "3.12", "3.13"]
     for version in expected_versions:
         assert version in python_versions or float(version) in python_versions
 

@@ -31,7 +31,7 @@ def get_clean_body_length(docstring):
             break
         body_lines.append(line)
 
-    return len([l for l in body_lines if l.strip()])
+    return len([line for line in body_lines if line.strip()])
 
 
 def has_doc_link(docstring):

@@ -347,12 +347,14 @@ def solve_bending_beam(y_nodes: np.ndarray, EI: np.ndarray, F: np.ndarray) -> np
         L_e = y_nodes[i + 1] - y_nodes[i]
         EI_e = 0.5 * (EI[i] + EI[i + 1])
         c = EI_e / L_e**3
-        k = c * np.array([
-            [12.0, 6.0 * L_e, -12.0, 6.0 * L_e],
-            [6.0 * L_e, 4.0 * L_e**2, -6.0 * L_e, 2.0 * L_e**2],
-            [-12.0, -6.0 * L_e, 12.0, -6.0 * L_e],
-            [6.0 * L_e, 2.0 * L_e**2, -6.0 * L_e, 4.0 * L_e**2],
-        ])
+        k = c * np.array(
+            [
+                [12.0, 6.0 * L_e, -12.0, 6.0 * L_e],
+                [6.0 * L_e, 4.0 * L_e**2, -6.0 * L_e, 2.0 * L_e**2],
+                [-12.0, -6.0 * L_e, 12.0, -6.0 * L_e],
+                [6.0 * L_e, 2.0 * L_e**2, -6.0 * L_e, 4.0 * L_e**2],
+            ]
+        )
         idx = [2 * i, 2 * i + 1, 2 * i + 2, 2 * i + 3]
         for r in range(4):
             for col in range(4):

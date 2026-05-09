@@ -2,6 +2,7 @@ import os
 import sys
 from pathlib import Path
 
+
 def get_all_python_files(directory):
     files = []
     base_path = Path(directory)
@@ -11,12 +12,13 @@ def get_all_python_files(directory):
         files.append(str(p))
     return sorted(files)
 
+
 def check_coverage(report_path, source_dir):
     if not os.path.exists(report_path):
         print(f"Error: Report file not found at {report_path}")
         return False
 
-    with open(report_path, "r") as f:
+    with open(report_path) as f:
         report_content = f.read()
 
     python_files = get_all_python_files(source_dir)
@@ -38,10 +40,11 @@ def check_coverage(report_path, source_dir):
     print(f"Success: All {len(python_files)} files are covered in the report.")
     return True
 
+
 if __name__ == "__main__":
     report = ".planning/phases/06-doc-audit/AUDIT_REPORT.md"
     src = "src/lightaero"
-    
+
     if not check_coverage(report, src):
         sys.exit(1)
     sys.exit(0)

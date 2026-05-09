@@ -90,9 +90,19 @@ class WingGeometry:
         twist_cp = np.interp(y_cp, self.y_stations, self.twist)
 
         x_mid = np.array([0.5])
-        camber_cp = np.array([
-            float(interpolate_camber(y, self.y_stations, list(self.airfoil_sections), x_mid)[0]) for y in y_cp
-        ])
+        camber_cp = np.array(
+            [
+                float(
+                    interpolate_camber(
+                        y,
+                        self.y_stations,
+                        list(self.airfoil_sections),
+                        x_mid,
+                    )[0]
+                )
+                for y in y_cp
+            ]
+        )
 
         for arr_name, arr in [
             ("y_stations", self.y_stations),

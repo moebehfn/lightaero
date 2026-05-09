@@ -207,10 +207,12 @@ class VLMDiscipline(DisciplineBase):
     def __str__(self) -> str:
         if self._results is None:
             return "VLMDiscipline: No results yet. Call the discipline with valid inputs to compute aerodynamics."
-        return "\n".join([
-            f"Lift Coefficient           (CL) : {self._results.CL:.4e}",
-            f"Drag Coefficient           (CD) : {self._results.CD:.4e}",
-            f"Induced Drag Coefficient   (CDi): {self._results.CDi:.4e}",
-            f"Zero-Lift Drag Coefficient (CD0): {self._results.CD0:.4e}",
-            f"Coefficient of Moment      (CM) : {self._results.CM:.4e}",
-        ])
+        return "\n".join(
+            [
+                f"Lift Coefficient           (CL) : {self._results.CL:.4e}",
+                f"Drag Coefficient           (CD) : {self._results.CD:.4e}",
+                f"Induced Drag Coefficient   (CDi): {self._results.CDi:.4e}",
+                f"Zero-Lift Drag Coefficient (CD0): {self._results.CD0:.4e}",
+                f"Coefficient of Moment      (CM) : {self._results.CM:.4e}",
+            ]
+        )

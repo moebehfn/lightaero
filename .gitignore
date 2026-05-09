@@ -177,3 +177,7 @@ ignore*
 tmp*
 temporary*
 temp*
+
+site/*
+# Ignore HTML assets
+docs/assets/fig.html

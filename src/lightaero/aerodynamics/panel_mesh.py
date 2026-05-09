@@ -111,17 +111,21 @@ def build_panel_mesh(wing: WingGeometry) -> PanelMesh:
     x_tqc = np.array([0.75])
 
     # z at bound vortex endpoints (quarter-chord of each panel node)
-    z_at_nodes = np.array([
-        chord_nodes[j] * float(interpolate_camber(y_nodes[j], wing.y_stations, sections_list, x_qc)[0])
-        for j in range(n + 1)
-    ])  # shape (n+1,)
+    z_at_nodes = np.array(
+        [
+            chord_nodes[j] * float(interpolate_camber(y_nodes[j], wing.y_stations, sections_list, x_qc)[0])
+            for j in range(n + 1)
+        ]
+    )  # shape (n+1,)
     z_at_nodes += wing.deflection_z
 
     # z at control points (three-quarter-chord)
-    z_cp = np.array([
-        wing.chord_cp[j] * float(interpolate_camber(wing.y_cp[j], wing.y_stations, sections_list, x_tqc)[0])
-        for j in range(n)
-    ])  # shape (n,)
+    z_cp = np.array(
+        [
+            wing.chord_cp[j] * float(interpolate_camber(wing.y_cp[j], wing.y_stations, sections_list, x_tqc)[0])
+            for j in range(n)
+        ]
+    )  # shape (n,)
     deflection_cp = 0.5 * (wing.deflection_z[:-1] + wing.deflection_z[1:])
     z_cp += deflection_cp
 
